@@ -17,5 +17,17 @@ To build the image:
     make build
 
 
-To run a private package registry add your packages to
-``/var/www/localhost/htdocs/alpine/``.
+To run the mirror, provide the package directory tree as a volume from the host, or
+another container. In this example the host directory `./repo` contains the
+packages:
+
+    docker run -ti \
+        -v $PWD/repo:/var/www/localhost/htdocs/alpine/ \
+        alpine-package-mirror:$USER
+
+
+To run the mirror with a companion container which takes care of pulling updates
+with rsync, you can use the provided ``docker-compose.yml``:
+
+    BUILD_ID=latest make build build_repo
+    docker-compose up -d

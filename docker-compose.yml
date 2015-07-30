@@ -1,0 +1,7 @@
+
+mirror:
+    image: alpine-package-mirror:latest
+    volumes_from: ['data']
+
+data:
+    image: alpine-package-data:latest

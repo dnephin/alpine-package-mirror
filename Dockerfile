@@ -1,4 +1,6 @@
-
+#
+# Run lighttpd to serve apk packages
+#
 FROM    alpine:3.2
 MAINTAINER  Daniel Nephin <dnephin@gmail.com>
 
