@@ -12,9 +12,7 @@ src=rsync://rsync.alpinelinux.org/alpine/
 dest=/var/www/localhost/htdocs/alpine/
 
 /usr/bin/rsync -prua \
-        --exclude "v2.[1-9]" \
-        --exclude "v3.0" \
-        --exclude "v3.1" \
+        --exclude-from /etc/rsync/exclude.txt \
         --delete \
         --timeout=120 \
         --delay-updates \
