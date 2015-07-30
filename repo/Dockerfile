@@ -8,8 +8,7 @@ RUN     apk update && apk add rsync
 RUN     mkdir -p /var/www/localhost/htdocs/alpine
 
 ADD     rsync.sh /etc/periodic/hourly/package-rsync
-RUN     echo "echo doing stuff" > /etc/periodic/15min/doit
-RUN     chmod +x /etc/periodic/15min/doit
+ADD     exclude.txt /etc/rsync/exclude.txt
 
 VOLUME  /var/www/localhost/htdocs/alpine
 CMD     ["crond", "-f", "-d", "6"]

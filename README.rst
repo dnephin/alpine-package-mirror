@@ -8,26 +8,36 @@ distribution.
 
 
 Based on http://wiki.alpinelinux.org/wiki/How_to_setup_a_Alpine_Linux_mirror
+
 To configure alpine to use your new package mirror see
 http://wiki.alpinelinux.org/wiki/Include:Using_Internet_Repositories_for_apk-tools
 
 
 To build the image:
 
+
+.. code:: sh
+
     make build
 
 
 To run the mirror, provide the package directory tree as a volume from the host, or
-another container. In this example the host directory `./repo` contains the
-packages:
+another container. In this example the host directory ``./packages`` contains the
+package data:
+
+
+.. code:: sh
 
     docker run -ti \
-        -v $PWD/repo:/var/www/localhost/htdocs/alpine/ \
+        -v $PWD/packages:/var/www/localhost/htdocs/alpine/ \
         alpine-package-mirror:$USER
 
 
 To run the mirror with a companion container which takes care of pulling updates
 with rsync, you can use the provided ``docker-compose.yml``:
+
+
+.. code:: sh
 
     BUILD_ID=latest make build build_repo
     docker-compose up -d
