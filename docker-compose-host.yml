@@ -1,0 +1,8 @@
+
+mirror:
+    image: alpine-package-mirror:latest
+    volumes: ['./packges:/var/www/localhost/htdocs/alpine']
+
+data:
+    image: alpine-package-data:latest
+    volumes: ['./packges:/var/www/localhost/htdocs/alpine']
