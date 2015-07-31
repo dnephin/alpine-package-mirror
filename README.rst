@@ -13,7 +13,7 @@ To configure alpine to use your new package mirror see
 http://wiki.alpinelinux.org/wiki/Include:Using_Internet_Repositories_for_apk-tools
 
 
-To build the image:
+To build the images:
 
 
 .. code:: sh
@@ -39,5 +39,5 @@ with rsync, you can use the provided ``docker-compose.yml``:
 
 .. code:: sh
 
-    BUILD_ID=latest make build build_repo
+    BUILD_ID=latest make build
     docker-compose up -d

@@ -1,13 +1,16 @@
 
 BUILD_ID ?= ${USER}
+REGISTRY ?= ""
 
 
-.PHONY: build
-build:
-	docker build -t alpine-package-mirror:${BUILD_ID} .
-	@echo Image tag: alpine-package-mirror:${BUILD_ID}
+.PHONY: build_mirror
+build_mirror:
+	docker build -t ${REGISTRY}alpine-package-mirror:${BUILD_ID} .
+	@echo Image tag: ${REGISTRY}alpine-package-mirror:${BUILD_ID}
 
 .PHONY: build_repo
 build_repo:
-	docker build -t alpine-package-data:${BUILD_ID} repo/
-	@echo Image tag: alpine-package-data:${BUILD_ID}
+	docker build -t ${REGISTRY}alpine-package-data:${BUILD_ID} repo/
+	@echo Image tag: ${REGISTRY}alpine-package-data:${BUILD_ID}
+
+build: build_repo build_mirror
