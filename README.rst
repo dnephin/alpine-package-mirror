@@ -10,7 +10,7 @@ distribution.
 Based on http://wiki.alpinelinux.org/wiki/How_to_setup_a_Alpine_Linux_mirror
 
 To configure alpine to use your new package mirror see
-http://wiki.alpinelinux.org/wiki/Include:Using_Internet_Repositories_for_apk-tools
+http://wiki.alpinelinux.org/wiki/Alpine_Linux_package_management
 
 
 To build the images:
